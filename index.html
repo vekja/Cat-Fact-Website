@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Random Cat Facts</title>
+  </head>
+
+  <body>
+    <button class="show-modal">
+      Click here to see and random fact about cats!
+    </button>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Fact about cats!</h1>
+
+      <script>
+        const URL = 'https://cat-fact.herokuapp.com';
+
+        async function makeAPICall() {
+          try {
+            const result = await fetch(URL);
+            const data = await result.json();
+            //result.json().then(data => {
+            //console.log(data);
+            //});
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        // makeAPICall();
+      </script>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
